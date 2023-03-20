@@ -1,0 +1,27 @@
+<h1>{{title | uppercase }}</h1>
+<h4>{{randomString | uppercase }}</h4>
+<h5>Today is, {{today | date:"fullDate"}}</h5>
+<h5>Today is, {{today | date:"dd/MM/YYYY"}}</h5>
+<h5>I have {{currency |currency:"INR" |uppercase}}</h5>
+<h5>{{user | json}}</h5>
+<h5>{{'hello this is winter time so all should wear proper winter clothes' | titlecase}}</h5>
+
+<h4>TABLE</h4>
+<input type="text" [(ngModel)]="filter">
+<table>
+  <tHead>
+    <tr *ngFor=" let data of tableHeaderArr ">
+      <th>{{data.id}}</th>
+      <th>{{data.name}}</th>
+      <th>{{data.address}}</th>
+    </tr>
+  </tHead>
+  <tBody>
+    <tr *ngFor="let data of tableBodyArr | search:filter">
+      <!-- <tr *ngFor="let data of tableBodyArr "> -->
+      <td>{{data.id}}</td>
+      <td>{{data.name}}</td>
+      <td>{{data.address}}</td>
+    </tr>
+  </tBody>
+</table>
