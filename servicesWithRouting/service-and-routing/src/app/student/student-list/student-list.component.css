@@ -1,0 +1,55 @@
+.btn-margin {
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+.tableFixHead {
+  overflow: auto;
+  height: 400px;
+}
+
+/* .menu {
+  display: none;
+}
+
+.menu.visible {
+  display: block;
+} */
+
+.tab-container {
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  height: 100%;
+  background-color: black;
+  transform: translateX(0);
+  transition: left 0.5s ease-in-out;
+}
+
+.component-container {
+  width: 100%;
+}
+
+.tab-container.active + .component-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  transform: translateX(0);
+  transition: left 0.5s ease-in-out;
+}
+
+.tab-container.active {
+  left: 0;
+}
+
+.tab-toggle {
+  position: absolute;
+  background-color: black;
+}
+
+.tab-content {
+  padding: 20px;
+  padding-top: 60px;
+}
