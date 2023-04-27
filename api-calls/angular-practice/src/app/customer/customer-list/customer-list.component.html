@@ -1,0 +1,35 @@
+<section>
+    <header>
+        <ng-select 
+        [items]="cars" 
+        bindLabel="name" 
+        bindValue="id" 
+    [clearable]="false"
+    [(ngModel)]="selectedCar">
+</ng-select>
+        <div>
+            <button>Add</button>
+        </div>
+        
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>DESCRIPTION</th>
+                    <th>STATUS</th>
+                    <th>RATE</th>
+                    <th>BALANCE</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of customerData">
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</section>
+<app-add-customer></app-add-customer>

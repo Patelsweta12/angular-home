@@ -1,0 +1,11 @@
+{
+  "customer":[
+  {
+    "name":"sweta",
+    "description":"hgfjsdgfhsgfjhgsdf",
+    "status":"open",
+    "rate":76,
+    "balance":566
+    }
+  ]
+}
