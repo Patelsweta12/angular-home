@@ -1,35 +1,50 @@
 <section>
-    <header>
-        <ng-select 
-        [items]="cars" 
-        bindLabel="name" 
-        bindValue="id" 
-    [clearable]="false"
-    [(ngModel)]="selectedCar">
-</ng-select>
-        <div>
-            <button>Add</button>
-        </div>
-        
-    </header>
-    <main>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>DESCRIPTION</th>
-                    <th>STATUS</th>
-                    <th>RATE</th>
-                    <th>BALANCE</th>
-                    <th>ACTION</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let data of customerData">
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </main>
+  <header class="d-flex justify-content-between align-items-center">
+    <ng-select
+      class="select"
+      [items]="status"
+      bindLabel="name"
+      bindValue="id"
+      [clearable]="false"
+      [searchable]="false"
+      [(ngModel)]="selectedCar"
+    >
+    </ng-select>
+    <div>
+      <button>Add</button>
+      <input type="text" placeholder="Search here..." />
+    </div>
+  </header>
+  <main>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+              <th>id</th>
+              <th>Name</th>
+              <th>DESCRIPTION</th>
+              <th>STATUS</th>
+              <th>RATE</th>
+              <th>BALANCE</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of customerData">
+              <td>{{ data.id }}</td>
+              <td>{{ data.name }}</td>
+              <td>{{ data.description }}</td>
+              <td>{{ data.status }}</td>
+              <td>{{ data.rate | currency }}</td>
+              <td>{{ data.balance | currency }}</td>
+              <td>
+                <a href=""><i class="fa-sharp fa-solid fa-trash"></i></a>
+                <a href=""><i class="fa-solid fa-pen"></i></a>
+              </td>
+            </tr>
+          </tbody>
+      </table>
+   
+  </main>
 </section>
+
 <app-add-customer></app-add-customer>

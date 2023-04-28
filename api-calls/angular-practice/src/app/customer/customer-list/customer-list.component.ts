@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../customer.service';
+import { Customer } from '../customer';
 
 @Component({
   selector: 'app-customer-list',
@@ -10,19 +11,23 @@ export class CustomerListComponent implements OnInit {
   selectedCar: number=0;
   customerData:any
 
-    cars = [
-      { id: 0, name: 'All' },
-        { id: 1, name: 'Volvo' },
-        { id: 2, name: 'Saab' },
-        { id: 3, name: 'Opel' },
-        { id: 4, name: 'Audi' },
+    status = [
+      { id: 0, name: 'All'},
+        { id: 1, name: 'Open'},
+        { id: 2, name: 'Error'},
+        { id: 3, name: 'Inactive'},
+        { id: 4, name: 'sucess'},
     ];
 
   constructor(private cusomerService:CustomerService) { }
 
   ngOnInit(): void {
+    this.getCustomerData();
   }
   getCustomerData(){
-    this.cusomerService.getCustomer().subscribe(res=>res=this.customerData)
+    this.cusomerService.getCustomer().subscribe((res:Customer[]) => this.customerData = res)
+  }
+  deleteCustomerData(id:number){
+    this.cusomerService.deleteCustomer(id).subscribe()
   }
 }
