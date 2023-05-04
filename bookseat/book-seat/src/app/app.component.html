@@ -1,4 +1,19 @@
-header
+<button
+	type="button"
+	class="seat-btn btn-outline-secondary me-2"
+	placement="auto"
+	><img src="../assets/images/unallocated-seat.png" alt="gray-seat"
+    [ngbPopover]="popContent">
+	
+</button>
+<ng-template #popContent>
+    <p>you have selected unassigned seat. please proceed with clicking on Request.</p>
+    <button class="btn">REQUEST</button>
+    </ng-template>
+
+
+
+
 
 
 
