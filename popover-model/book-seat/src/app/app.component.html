@@ -1,0 +1,74 @@
+<button type="button" class="seat-btn btn-outline-secondary me-2" placement="auto">
+  <img src="../assets/images/unallocated-seat.png" alt="gray-seat" [ngbPopover]="popContent" />
+</button>
+<ng-template #popContent>
+  <p class="message">
+    you have selected unassigned seat. please proceed with clicking on Request.
+  </p>
+  <button class="button">REQUEST</button>
+</ng-template>
+
+<!-- example -->
+<button type="button" class="btn seat-btn btn-outline-secondary me-2" placement="auto" [ngbPopover]="userContent">
+  <img src="../assets/images/Group 6.png" alt="profile" />
+</button>
+
+<ng-template #userContent>
+  <p class="message">
+    detail of the user who wants to book the  seat
+  </p>
+  <button class="button" (click)="openVerticallyCentered(content)">REQUEST</button>
+</ng-template>
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Reason</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"><img src="../assets/images/close-icon.png" alt=""></button>
+	</div>
+	<div class="modal-body">
+		<p>type reson for  booking seat&hellip;</p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-light" (click)="openVerticallyCentered(onSubmitContent)" (click)="modal.dismiss('Cross click')">Submit</button>
+	</div>
+</ng-template>
+<ng-template #onSubmitContent let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Reason</h4>
+    
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"><img src="../assets/images/close-icon.png" alt=""></button>
+	</div>
+	<div class="modal-body">
+		<p>Your Seat Request is been Submitted. Thank you!…&hellip;</p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-light"(click)="modal.dismiss('Cross click')">close</button>
+	</div>
+</ng-template>
+
+
+<!-- date picker -->
+<!-- <div class="container p-4">
+  <form class="row row-cols-sm-auto">
+    <div class="col-12">
+      <div class="input-group">
+        <input
+          class="form-control"
+          placeholder="yyyy-mm-dd"
+          name="dp"
+          [(ngModel)]="model"
+          ngbDatepicker
+          #d="ngbDatepicker"
+        />
+        <button
+          class="btn btn-outline-secondary bi bi-calendar3"
+          (click)="d.toggle()"
+          type="button"
+        ></button>
+      </div>
+    </div>
+  </form> -->
+
+<!-- <pre>Model: {{ model | json }}</pre> -->
+<!-- </div> -->
+
+<router-outlet></router-outlet>
